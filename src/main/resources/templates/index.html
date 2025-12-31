@@ -1,10 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Coupon Lab</title>
+    <style>
+        body { font-family: system-ui, -apple-system; padding: 24px; max-width: 760px; margin: 0 auto; }
+        .row { display: flex; gap: 12px; flex-wrap: wrap; margin: 12px 0; }
+        input { padding: 10px 12px; border-radius: 10px; border: 1px solid #444; width: 180px; }
+        button { padding: 12px 14px; border-radius: 10px; border: 1px solid #444; background: transparent; cursor: pointer; }
+        pre { padding: 14px; border-radius: 12px; border: 1px solid #333; overflow: auto; }
+        .muted { opacity: .7; }
+    </style>
 </head>
 <body>
-$END$
+    <h1>쿠폰 발급 실습</h1>
+    <p class="muted">동기 발급 vs MQ 발급을 한 화면에서 비교</p>
+
+    <div class="row">
+        <label>userId <input id="userId" value="1"></label>
+        <label>couponId <input id="couponId" value="100"></label>
+    </div>
+
+    <div class="row">
+        <button id="syncBtn">동기 발급</button>
+        <button id="atomicBtn">동기 발급(원자 UPDATE)</button>
+        <button id="asyncBtn">MQ 발급(접수)</button>
+    </div>
+
+    <h3>결과</h3>
+    <pre id="out">Ready.</pre>
+
+    <script src="/app.js"></script>
 </body>
 </html>

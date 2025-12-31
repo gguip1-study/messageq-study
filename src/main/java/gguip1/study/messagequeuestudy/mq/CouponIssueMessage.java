@@ -1,4 +1,4 @@
 package gguip1.study.messagequeuestudy.mq;
 
-public record CouponIssueMessage() {
+public record CouponIssueMessage(String requestId, Long userId, Long couponId) {
 }
